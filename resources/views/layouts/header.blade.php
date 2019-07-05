@@ -54,7 +54,7 @@
                                     }else if($interval->i >= 1){
                                         $time = $interval->i. " mins";
                                     }else{
-                                        $time = "Just now";
+                                        $time = "Just Now";
                                     }                                    
                                 @endphp 
                                 <li class="media">
@@ -78,108 +78,29 @@
 
                                     <div class="media-body">
                                         <div class="media-title">
-                                            <a href="animations_velocity_basic.html#">
-                                                <span class="font-weight-semibold">New Reservation</span>
+                                            <a href="{{route('reservation.edit', $item->reservation->id)}}">
+                                                <span class="font-weight-semibold">
+                                                    @switch($item->type)
+                                                        @case("new_reservation")
+                                                            New Reservation
+                                                            @break
+                                                        @case("om_accept")
+                                                            Office Manager Accept
+                                                            @break
+                                                        @case("gm_accept")
+                                                            General Manager Accept
+                                                            @break
+                                                        @default
+                                                            New Nofification
+                                                    @endswitch 
+                                                </span>
                                                 <span class="text-muted float-right font-size-sm"> {{$time}} </span>
                                             </a>
                                         </div>
                                         <span class="text-muted">{{$item->content}}</span>
                                     </div>
-
-                                    <li class="timeline-item">
-                                        @switch($item->type)
-                                            @case("create_project")
-                                                <i class="ti-check timeline-icon"></i>
-                                                @break
-                                            @case("new_request")
-                                                <i class="fa fa-file-excel-o timeline-icon"></i>
-                                                @break
-                                            @case("exceed_limit")
-                                                <i class="fa fa-file-excel-o timeline-icon"></i>
-                                                @break
-                                            @case("new_course")
-                                                <i class="fa fa-file-excel-o timeline-icon"></i>
-                                                @break
-                                            @case("completed")
-                                                <i class="ti-announcement timeline-icon"></i>
-                                                @break
-                                            @default
-                                                <i class="fa fa-file-excel-o timeline-icon"></i>
-                                        @endswitch                                    
-                                        {{$item->content}}&nbsp;
-                                        <small class="float-right text-muted ml-2 nowrap">{{$time}}</small>
-                                    </li>
+                                </li>
                             @endforeach
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            <li class="media">
-                                <div class="mr-3 position-relative">
-                                    <a href="animations_velocity_basic.html#" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i class="icon-git-pull-request"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="animations_velocity_basic.html#">
-                                            <span class="font-weight-semibold">New Reservation</span>
-                                            <span class="text-muted float-right font-size-sm">04:58</span>
-                                        </a>
-                                    </div>
-                                    <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="mr-3 position-relative">
-                                    <img src="../../../../global_assets/images/demo/users/face3.jpg" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="animations_velocity_basic.html#">
-                                            <span class="font-weight-semibold">Margo Baker</span>
-                                            <span class="text-muted float-right font-size-sm">12:16</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">That was something he was unable to do because...</span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="mr-3">
-                                    <img src="../../../../global_assets/images/demo/users/face24.jpg" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="animations_velocity_basic.html#">
-                                            <span class="font-weight-semibold">Jeremy Victorino</span>
-                                            <span class="text-muted float-right font-size-sm">22:48</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">But that would be extremely strained and suspicious...</span>
-                                </div>
-                            </li>
 
                             <li class="media">
                                 <div class="mr-3">
