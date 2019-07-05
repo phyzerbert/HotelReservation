@@ -174,11 +174,9 @@ class ReservationController extends Controller
                     'content' => $content,
                     'reservation_id' => $item->id,
                 ]);
-                // Mail::to($item->visitor_email)->send(new ReservationMail($item));
+                Mail::to($item->visitor_email)->send(new ReservationMail($item));
             }
-        }
-
-        
+        }        
         return back()->with('success', 'Replied for the reservation.');
     }
 
