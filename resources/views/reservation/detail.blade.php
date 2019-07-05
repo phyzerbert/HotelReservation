@@ -230,7 +230,7 @@
             </form>
         </div>                
     </div>
-
+    @if ($role != 'data_editor')
     <!-- The Modal -->
     <div class="modal fade" id="replyModal">
         <div class="modal-dialog">
@@ -275,6 +275,7 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 
 @section('script')
