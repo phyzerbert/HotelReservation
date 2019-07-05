@@ -19,9 +19,13 @@ class NotificationController extends Controller
         return view('notification', compact('data'));
     }
 
-    public function delete($id){
-        $item = Notification::find($id);
-        $item->delete();
-        return back()->with("success", "Deleted Successfully");
+    public function delete(Request $request){
+        $data =  explode(",", $request->get('deletemessages'));
+        foreach ($data as $item) {
+            $noti = Notification::find($item);
+    	    $noti->delete();
+        }
+        // return response()->json($data);
+        return response()->json('success');
     }
 }

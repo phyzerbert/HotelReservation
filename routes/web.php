@@ -41,4 +41,4 @@ Route::post('/reservation/reply', 'ReservationController@reply')->name('reservat
 Route::get('/reservation/delete/{id}', 'ReservationController@delete')->name('reservation.delete');
 
 Route::get('/notification/index', 'NotificationController@index')->name('notification.index');
-Route::get('/notification/delete/{id}', 'NotificationController@delete')->name('notification.delete');
+Route::post('/notification/delete', 'NotificationController@delete')->name('notification.delete');

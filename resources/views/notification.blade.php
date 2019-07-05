@@ -39,13 +39,11 @@
                     <div class="navbar-collapse text-center text-lg-left flex-wrap collapse" id="inbox-toolbar-toggle-single">
                         <div class="mt-3 mt-lg-0">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-light btn-icon btn-checkbox-all">
-                                    <input type="checkbox" class="form-input-styled" data-fouc>
-                                </button>
+                                <input type="checkbox" id="select-all" class="form-input-styled" data-fouc>
                             </div>
 
                             <div class="btn-group ml-3 mr-lg-3">
-                                <button type="button" class="btn btn-light"><i class="icon-bin"></i> <span class="d-none d-lg-inline-block ml-2">Delete</span></button>
+                                <button type="button" id="top-delete-btn" class="btn btn-light"><i class="icon-bin"></i> <span class="d-none d-lg-inline-block ml-2">Delete</span></button>
                             </div>
                         </div>
 
@@ -83,21 +81,21 @@
                                 @endphp
                                 <tr class="unread">
                                     <td class="table-inbox-checkbox rowlink-skip">
-                                        <input type="checkbox" class="form-input-styled" data-fouc>
+                                        <input type="checkbox" data-id="{{$item->id}}" class="form-input-styled mail-check" data-fouc>
                                     </td>
-                                    <td class="table-inbox-image">                                        
+                                    <td class="text-center" width="80">                                        
                                         @switch($item->type)
                                             @case("new_reservation")
                                                 <span class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i class="icon-new"></i></span>
                                                 @break
                                             @case("om_accept")
-                                                <span class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i class="icon-file-check"></i></span>                                                    
+                                                <span class="btn bg-transparent border-success text-success rounded-round border-2 btn-icon"><i class="icon-file-check"></i></span>                                                    
                                                 @break
                                             @case("gm_accept")
-                                                <span class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i class="icon-file-check2"></i></span>
+                                                <span class="btn bg-transparent border-info text-info rounded-round border-2 btn-icon"><i class="icon-file-check2"></i></span>
                                                 @break
                                             @default
-                                                <span class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i class="icon-bubble-notification"></i></span>
+                                                <span class="btn bg-transparent border-warning text-warning rounded-round border-2 btn-icon"><i class="icon-bubble-notification"></i></span>
                                         @endswitch
                                     </td>
                                     <td class="table-inbox-name">
@@ -124,8 +122,6 @@
                                         {{ date('M, d H:i', strtotime($item->created_at))}}
                                     </td>
                                 </tr>
-
-
                             @endforeach
                         </tbody>
                     </table>
@@ -145,6 +141,7 @@
 <script>
     $(document).ready(function () {
         $('.form-input-styled').uniform();
+
         $('.table-inbox').find('tr > td:first-child').find('input[type=checkbox]').on('change', function() {
             if($(this).is(':checked')) {
                 $(this).parents('tr').addClass("alpha-slate");
@@ -152,6 +149,45 @@
             else {
                 $(this).parents('tr').removeClass("alpha-slate");
             }
+        });
+
+
+        var selectedmessages = [];
+        $("#select-all").change(function(){
+            if(this.checked){
+                $(".mail-check").prop("checked", true).uniform();
+            }else{
+                $(".mail-check").prop("checked", false).uniform();
+            }
+        })
+
+        $("#top-delete-btn").click(function(){
+            selectedmessages = [];
+            $(".mail-check:checked").each(function(){
+                selectedmessages.push($(this).data("id"));
+            });
+
+            if (selectedmessages.length == 0) {
+                alert("Please select first.");
+                return false;
+            }
+
+            if (!confirm("Are you sure?")) {
+                return false;
+            }
+            var deletemessages = selectedmessages.join();
+            console.log(deletemessages);
+            $.ajax({
+                url: "{{route('notification.delete')}}",
+                type: "POST",
+                data: {deletemessages : deletemessages},
+                success: function(data){
+                    if(data == 'success'){
+                        alert('Deleted Successfully');
+                        window.location.reload();
+                    }
+                }
+            });
         });
     });
 </script>
