@@ -30,9 +30,9 @@
         <div class="content">
             <div class="card">
                 <div class="card-header">
-                    {{-- @if ($role == 'data_editor') --}}
+                    @if ($role == 'data_editor')
                         <a href="{{route('reservation.create')}}" class="btn btn-primary float-right" id="btn-add"><i class="icon-plus-circle2 mr-2"></i> Add New</a>
-                    {{-- @endif --}}
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
