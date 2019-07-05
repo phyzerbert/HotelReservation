@@ -41,7 +41,8 @@
                                 <tr class="bg-blue">
                                     <th style="width:30px;">#</th>
                                     <th>Name</th>
-                                    <th>Stars</th>
+                                    <th>Email</th>
+                                    <th style="min-width:154px;">Stars</th>
                                     <th>City</th>
                                     <th>Address</th>
                                     <th>Number Of Rooms</th>
@@ -54,6 +55,7 @@
                                     <tr>
                                         <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                         <td class="name">{{$item->name}}</td>
+                                        <td class="email">{{$item->email}}</td>
                                         <td class="stars" data-id="{{$item->stars}}">
                                             @for ($i = 1; $i <= $item->stars; $i++)
                                                 <img src="{{asset('images/star.png')}}" width="20" alt="">
@@ -107,6 +109,13 @@
                             <label class="control-label">Name</label>
                             <input class="form-control name" type="text" name="name" placeholder="Name">
                             <span id="name_error" class="invalid-feedback">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input class="form-control email" type="text" name="email" placeholder="Email">
+                            <span id="email_error" class="invalid-feedback">
                                 <strong></strong>
                             </span>
                         </div>
@@ -172,6 +181,13 @@
                             <label class="control-label">Name</label>
                             <input class="form-control name" type="text" name="name" placeholder="Name">
                             <span id="edit_name_error" class="invalid-feedback">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input class="form-control email" type="text" name="email" placeholder="Email">
+                            <span id="edit_email_error" class="invalid-feedback">
                                 <strong></strong>
                             </span>
                         </div>
@@ -257,6 +273,12 @@
                             $('#name_error').show();
                             $('#create_form .name').focus();
                         }
+
+                        if(messages.email) {
+                            $('#email_error strong').text(data.responseJSON.errors.email[0]);
+                            $('#email_error').show();
+                            $('#create_form .email').focus();
+                        }
                         
                         if(messages.stars) {
                             $('#stars_error strong').text(data.responseJSON.errors.stars[0]);
@@ -295,6 +317,7 @@
         $(".btn-edit").click(function(){
             let id = $(this).attr("data-id");
             let name = $(this).parents('tr').find(".name").text().trim();
+            let email = $(this).parents('tr').find(".email").text().trim();
             let stars = $(this).parents('tr').find(".stars").data('id');
             let city = $(this).parents('tr').find(".city").text().trim();
             let address = $(this).parents('tr').find(".address").text().trim();
@@ -304,6 +327,7 @@
             $("#edit_form input.form-control").val('');
             $("#editModal .id").val(id);
             $("#editModal .name").val(name);
+            $("#editModal .email").val(email);
             $("#editModal .stars").val(stars);
             $("#editModal .city").val(city);
             $("#editModal .address").val(address);
@@ -316,7 +340,7 @@
         $("#btn_update").click(function(){
             $.ajax({
                 url: "{{route('hotel.edit')}}",
-                type: 'post',
+                type: 'POST',
                 dataType: 'json',
                 data: $('#edit_form').serialize(),
                 success : function(data) {
@@ -336,6 +360,12 @@
                             $('#edit_name_error strong').text(data.responseJSON.errors.name[0]);
                             $('#edit_name_error').show();
                             $('#edit_form .name').focus();
+                        }
+
+                        if(messages.email) {
+                            $('#edit_email_error strong').text(data.responseJSON.errors.email[0]);
+                            $('#edit_email_error').show();
+                            $('#edit_form .email').focus();
                         }
                         
                         if(messages.stars) {

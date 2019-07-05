@@ -45,3 +45,6 @@ Route::post('/notification/delete', 'NotificationController@delete')->name('noti
 
 
 Route::get('/test_email', 'ReservationController@test_email');
+
+Route::get('/hotel_verify/{id}/{token}', 'VerifyController@hotel_verify')->name('hotel_verify');
+Route::get('/hotel_reply/{id}/{result}', 'VerifyController@hotel_reply')->name('hotel_reply');

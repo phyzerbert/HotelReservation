@@ -16,6 +16,7 @@ class CreateHotelsTable extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('email');
             $table->integer('stars')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();

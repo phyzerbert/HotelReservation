@@ -35,6 +35,7 @@ class CreateReservationsTable extends Migration
             $table->integer('gm_status')->default(0);
             $table->integer('gm_id')->nullable();
             $table->dateTime('gm_date')->nullable();
+            $table->integer('hotel_status')->default(0);
             $table->timestamps();
         });
     }
