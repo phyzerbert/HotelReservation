@@ -36,7 +36,7 @@
                     $recent_messages = \App\Models\Notification::orderBy('created_at', 'desc')->limit(5)->get();
                 @endphp
                 <div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
-                    <div class="dropdown-content-header">
+                    <div class="dropdown-content-header d-block text-center">
                         <span class="font-weight-semibold">Notifications</span>
                     </div>
 
@@ -48,11 +48,11 @@
                                     $now = new DateTime();
                                     $interval = $posted_time->diff($now);
                                     if($interval->d >= 1){
-                                        $time = $interval->d. " days";
+                                        $time = $interval->d. " Days";
                                     }else if($interval->h >= 1){
-                                        $time = $interval->h. " hours";
+                                        $time = $interval->h. " Hours";
                                     }else if($interval->i >= 1){
-                                        $time = $interval->i. " mins";
+                                        $time = $interval->i. " Mins";
                                     }else{
                                         $time = "Just Now";
                                     }                                    
@@ -62,16 +62,16 @@
                                         <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon">
                                             @switch($item->type)
                                                 @case("new_reservation")
-                                                    <i class="icon-git-pull-request"></i>
+                                                    <i class="icon-new"></i>
                                                     @break
                                                 @case("om_accept")
-                                                    <i class="icon-git-pull-request"></i>
+                                                    <i class="icon-file-check"></i>
                                                     @break
                                                 @case("gm_accept")
-                                                    <i class="icon-git-pull-request"></i>
+                                                    <i class="icon-file-check2"></i>
                                                     @break
                                                 @default
-                                                    <i class="icon-git-pull-request"></i>
+                                                    <i class="icon-bubble-notification"></i>
                                             @endswitch
                                         </a>
                                     </div>
@@ -101,23 +101,6 @@
                                     </div>
                                 </li>
                             @endforeach
-
-                            <li class="media">
-                                <div class="mr-3">
-                                    <img src="../../../../global_assets/images/demo/users/face4.jpg" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="animations_velocity_basic.html#">
-                                            <span class="font-weight-semibold">Beatrix Diaz</span>
-                                            <span class="text-muted float-right font-size-sm">Tue</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">What a strenuous career it is that I've chosen...</span>
-                                </div>
-                            </li>
-
                         </ul>
                     </div>
 
