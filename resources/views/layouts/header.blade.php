@@ -26,6 +26,186 @@
         <span class="badge bg-success ml-md-3 mr-md-auto">Online</span>
 
         <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a href="animations_velocity_basic.html#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
+                    <i class="icon-bell3"></i>
+                    <span class="d-md-none ml-2">Notifications</span>
+                    {{-- <span class="badge badge-pill bg-warning-400 ml-auto ml-md-0">2</span> --}}
+                </a>
+                @php
+                    $recent_messages = \App\Models\Notification::orderBy('created_at', 'desc')->limit(5)->get();
+                @endphp
+                <div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+                    <div class="dropdown-content-header">
+                        <span class="font-weight-semibold">Notifications</span>
+                    </div>
+
+                    <div class="dropdown-content-body dropdown-scrollable">
+                        <ul class="media-list">
+                            @foreach ($recent_messages as $item)
+                                @php
+                                    $posted_time = new DateTime($item->created_at);
+                                    $now = new DateTime();
+                                    $interval = $posted_time->diff($now);
+                                    if($interval->d >= 1){
+                                        $time = $interval->d. " days";
+                                    }else if($interval->h >= 1){
+                                        $time = $interval->h. " hours";
+                                    }else if($interval->i >= 1){
+                                        $time = $interval->i. " mins";
+                                    }else{
+                                        $time = "Just now";
+                                    }                                    
+                                @endphp 
+                                <li class="media">
+                                    <div class="mr-3 position-relative">
+                                        <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon">
+                                            @switch($item->type)
+                                                @case("new_reservation")
+                                                    <i class="icon-git-pull-request"></i>
+                                                    @break
+                                                @case("om_accept")
+                                                    <i class="icon-git-pull-request"></i>
+                                                    @break
+                                                @case("gm_accept")
+                                                    <i class="icon-git-pull-request"></i>
+                                                    @break
+                                                @default
+                                                    <i class="icon-git-pull-request"></i>
+                                            @endswitch
+                                        </a>
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-title">
+                                            <a href="animations_velocity_basic.html#">
+                                                <span class="font-weight-semibold">New Reservation</span>
+                                                <span class="text-muted float-right font-size-sm"> {{$time}} </span>
+                                            </a>
+                                        </div>
+                                        <span class="text-muted">{{$item->content}}</span>
+                                    </div>
+
+                                    <li class="timeline-item">
+                                        @switch($item->type)
+                                            @case("create_project")
+                                                <i class="ti-check timeline-icon"></i>
+                                                @break
+                                            @case("new_request")
+                                                <i class="fa fa-file-excel-o timeline-icon"></i>
+                                                @break
+                                            @case("exceed_limit")
+                                                <i class="fa fa-file-excel-o timeline-icon"></i>
+                                                @break
+                                            @case("new_course")
+                                                <i class="fa fa-file-excel-o timeline-icon"></i>
+                                                @break
+                                            @case("completed")
+                                                <i class="ti-announcement timeline-icon"></i>
+                                                @break
+                                            @default
+                                                <i class="fa fa-file-excel-o timeline-icon"></i>
+                                        @endswitch                                    
+                                        {{$item->content}}&nbsp;
+                                        <small class="float-right text-muted ml-2 nowrap">{{$time}}</small>
+                                    </li>
+                            @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <li class="media">
+                                <div class="mr-3 position-relative">
+                                    <a href="animations_velocity_basic.html#" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i class="icon-git-pull-request"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    <div class="media-title">
+                                        <a href="animations_velocity_basic.html#">
+                                            <span class="font-weight-semibold">New Reservation</span>
+                                            <span class="text-muted float-right font-size-sm">04:58</span>
+                                        </a>
+                                    </div>
+                                    <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3 position-relative">
+                                    <img src="../../../../global_assets/images/demo/users/face3.jpg" width="36" height="36" class="rounded-circle" alt="">
+                                </div>
+
+                                <div class="media-body">
+                                    <div class="media-title">
+                                        <a href="animations_velocity_basic.html#">
+                                            <span class="font-weight-semibold">Margo Baker</span>
+                                            <span class="text-muted float-right font-size-sm">12:16</span>
+                                        </a>
+                                    </div>
+
+                                    <span class="text-muted">That was something he was unable to do because...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3">
+                                    <img src="../../../../global_assets/images/demo/users/face24.jpg" width="36" height="36" class="rounded-circle" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-title">
+                                        <a href="animations_velocity_basic.html#">
+                                            <span class="font-weight-semibold">Jeremy Victorino</span>
+                                            <span class="text-muted float-right font-size-sm">22:48</span>
+                                        </a>
+                                    </div>
+
+                                    <span class="text-muted">But that would be extremely strained and suspicious...</span>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3">
+                                    <img src="../../../../global_assets/images/demo/users/face4.jpg" width="36" height="36" class="rounded-circle" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-title">
+                                        <a href="animations_velocity_basic.html#">
+                                            <span class="font-weight-semibold">Beatrix Diaz</span>
+                                            <span class="text-muted float-right font-size-sm">Tue</span>
+                                        </a>
+                                    </div>
+
+                                    <span class="text-muted">What a strenuous career it is that I've chosen...</span>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="dropdown-content-footer justify-content-center p-0">
+                        <a href="#" class="bg-light text-grey w-100 py-2" data-popup="tooltip" title="Load more"><i class="icon-menu7 d-block top-0"></i></a>
+                    </div>
+                </div>
+            </li>
+
             <li class="nav-item dropdown dropdown-user">
                 <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
                     <img src="@if (isset(Auth::user()->picture)){{asset(Auth::user()->picture)}} @else {{asset('images/avatar128.png')}} @endif" class="rounded-circle mr-2" height="34" alt="">

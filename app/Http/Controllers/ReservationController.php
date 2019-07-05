@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use App\Models\Hotel;
 use App\Models\Companion;
 use App\Models\NumberOfRoom;
+use App\Models\Notification;
 
 use Auth;
 // use Illuminate\Support\Facades\Mail;
@@ -22,7 +23,18 @@ class ReservationController extends Controller
 
     public function index()
     {        
-        $data = Reservation::paginate(15);
+        $user = Auth::user();
+        $role = $user->role->slug;
+
+        $mod = new Reservation();
+        if($role == 'general_manager'){
+            $mod = $mod->where('om_status', 2)->where('gm_status', 0);
+        }else if($role == 'office_manager'){
+            $mod = $mod->where('om_status', 0);
+        }
+
+        $data = $mod->orderBy('created_at', 'desc')->paginate(15);
+
         return view('reservation.index', compact('data'));
     }
 
@@ -58,6 +70,12 @@ class ReservationController extends Controller
         $item->check_in_date = $data['check_in_date'];
         $item->check_out_date = $data['check_out_date'];
         $item->save();
+        $content = "New reservation is created.";
+        Notification::create([
+            'type' => 'new_reservation',
+            'content' => $content,
+            'reservation_id' => $item->id,
+        ]);
         for ($i=0; $i < count($data['companion_name']); $i++) { 
             Companion::create([
                 'reservation_id' => $item->id,
@@ -135,12 +153,25 @@ class ReservationController extends Controller
             $item->om_id = $user->id;
             $item->om_status = $request->get('status');
             $item->om_date = date('Y-m-d H:i:s');
+            $item->save();
+            $content = "Office Manager accepted a reservation.";
+            Notification::create([
+                'type' => 'om_accept',
+                'content' => $content,
+                'reservation_id' => $item->id,
+            ]);
         }else if($role = 'general_manager'){
             $item->gm_id = $user->id;
             $item->gm_status = $request->get('status');
             $item->gm_date = date('Y-m-d H:i:s');
+            $item->save();
+            $content = "General Manager accepted a reservation.";
+            Notification::create([
+                'type' => 'gm_accept',
+                'content' => $content,
+                'reservation_id' => $item->id,
+            ]);
         }
-        $item->save();
 
         // Mail::to($item->visitor_email)->send(new ReservationMail($item));
 

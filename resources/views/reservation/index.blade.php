@@ -79,8 +79,11 @@
                                         </td>
                                         <td class="py-1">
                                             <a href="{{route('reservation.edit', $item->id)}}" class="btn bg-blue btn-icon rounded-round btn-edit" data-popup="tooltip" title="Detail" data-placement="top"><i class="icon-file-eye2"></i></a>
-                                            <a href="{{route('reservation.delete', $item->id)}}" class="btn bg-danger text-pink-800 btn-icon rounded-round ml-2" data-popup="tooltip" title="Delete" data-placement="top" onclick="return window.confirm('Are you sure?')"><i class="icon-trash"></i></a>
-                                        <a href="#" class="btn bg-info text-pink-800 btn-icon rounded-round ml-2 btn-reply" data-id="{{$item->id}}" data-status="@if($role=="general_manager"){{$item->gm_status}}@elseif($role == 'office_manager'){{$item->om_status}}@endif" data-popup="tooltip" title="Reply" data-placement="top"><i class="icon-reply  "></i></a>
+                                            @if ($role == 'data_editor') 
+                                                <a href="{{route('reservation.delete', $item->id)}}" class="btn bg-danger text-pink-800 btn-icon rounded-round ml-2" data-popup="tooltip" title="Delete" data-placement="top" onclick="return window.confirm('Are you sure?')"><i class="icon-trash"></i></a>
+                                            @else                                              
+                                                <a href="#" class="btn bg-info text-pink-800 btn-icon rounded-round ml-2 btn-reply" data-id="{{$item->id}}" data-status="@if($role=="general_manager"){{$item->gm_status}}@elseif($role == 'office_manager'){{$item->om_status}}@endif" data-popup="tooltip" title="Reply" data-placement="top"><i class="icon-reply"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

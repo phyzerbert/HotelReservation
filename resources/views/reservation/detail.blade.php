@@ -219,8 +219,11 @@
                         </div>
                         <div class="text-right">
                             <a href="{{route('reservation.index')}}" class="btn btn-info text-white">Back <i class="icon-undo2 ml-2"></i></a>
-                            <a href="#" class="btn btn-success text-white btn-reply">Reply <i class="icon-checkmark4 ml-2"></i></a>
-                            <button type="submit" class="btn btn-primary">Save <i class="icon-paperplane ml-2"></i></button>
+                            @if ($role != 'data_editor')
+                                <a href="#" class="btn btn-success text-white btn-reply">Reply <i class="icon-checkmark4 ml-2"></i></a>
+                            @else
+                                <button type="submit" class="btn btn-primary">Save <i class="icon-paperplane ml-2"></i></button>
+                            @endif
                         </div>
                     </div>
                 </div>     

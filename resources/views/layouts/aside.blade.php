@@ -1,5 +1,6 @@
 @php
     $page = config('site.page');
+    $role = Auth::user()->role->slug;
 @endphp
 <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
     <div class="sidebar-mobile-toggler text-center">
@@ -29,15 +30,14 @@
                 </div>
             </div>
         </div>
-        @php
-            $role = Auth::user()->role->slug;
-        @endphp
         <div class="card card-sidebar-mobile">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
                 <li class="nav-item"><a href="{{route('home')}}" class="nav-link @if($page == 'home') active @endif"><i class="icon-home4"></i><span> Dashboard</span></a></li>
                 <li class="nav-item"><a href="{{route('reservation.index')}}" class="nav-link @if($page == 'reservation') active @endif"><i class="icon-list2"></i><span> Reservation</span></a></li>
-                <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link @if($page == 'user') active @endif"><i class="icon-users2"></i><span> User</span></a></li>
-                <li class="nav-item"><a href="{{route('hotel.index')}}" class="nav-link @if($page == 'hotel') active @endif"><i class="icon-bed2"></i><span> Hotel</span></a></li>
+                @if ($role != 'data_editor')
+                    <li class="nav-item"><a href="{{route('hotel.index')}}" class="nav-link @if($page == 'hotel') active @endif"><i class="icon-bed2"></i><span> Hotel</span></a></li>
+                    <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link @if($page == 'user') active @endif"><i class="icon-users2"></i><span> User</span></a></li>
+                @endif
             </ul>
         </div>
     </div>    
