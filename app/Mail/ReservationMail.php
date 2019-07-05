@@ -31,8 +31,6 @@ class ReservationMail extends Mailable
      */
     public function build()
     {
-        $name = $this->visitor_name;
-        $accepted_date = $this->gm_date;
         return $this->view('emails.reservation_reply');
     }
 }

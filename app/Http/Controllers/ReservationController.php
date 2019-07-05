@@ -10,8 +10,8 @@ use App\Models\NumberOfRoom;
 use App\Models\Notification;
 
 use Auth;
-// use Illuminate\Support\Facades\Mail;
-// use App\Mail\ReservationMail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReservationMail;
 
 class ReservationController extends Controller
 {
@@ -174,11 +174,11 @@ class ReservationController extends Controller
                     'content' => $content,
                     'reservation_id' => $item->id,
                 ]);
+                // Mail::to($item->visitor_email)->send(new ReservationMail($item));
             }
         }
 
-        // Mail::to($item->visitor_email)->send(new ReservationMail($item));
-
+        
         return back()->with('success', 'Replied for the reservation.');
     }
 
@@ -187,5 +187,10 @@ class ReservationController extends Controller
         $item->companions->delete();
         $item->delete();
         return back()->with("success", "Deleted Successfully");
+    }
+
+    public function test_email(){
+        $item = Reservation::first();
+        Mail::to("xian1017@outlook.com")->send(new ReservationMail($item));
     }
 }
