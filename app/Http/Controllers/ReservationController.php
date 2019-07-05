@@ -22,18 +22,41 @@ class ReservationController extends Controller
         config(['site.page' => 'reservation']);
     }
 
-    public function index()
+    public function index(Request $request)
     {        
         $user = Auth::user();
         $role = $user->role->slug;
-
+        $hotels = Hotel::all();
         $mod = new Reservation();
 
+        $visitor_name = $hotel_id = $gm_status = $om_status = $period = '';
 
+        if ($request->get('visitor_name') != ""){
+            $visitor_name = $request->get('visitor_name');
+            $mod = $mod->where('visitor_name', 'LIKE', "%$visitor_name%");
+        }
+        if ($request->get('hotel_id') != ""){
+            $hotel_id = $request->get('hotel_id');
+            $mod = $mod->where('hotel_id', $hotel_id);
+        }
+        if ($request->get('gm_status') != ""){
+            $gm_status = $request->get('gm_status');
+            $mod = $mod->where('gm_status', $gm_status);
+        }
+        if ($request->get('om_status') != ""){
+            $om_status = $request->get('om_status');
+            $mod = $mod->where('om_status', $om_status);
+        }
+        if ($request->get('period') != ""){   
+            $period = $request->get('period');
+            $from = substr($period, 0, 10);
+            $to = substr($period, 14, 10);
+            $mod = $mod->whereBetween('created_at', [$from, $to]);
+        }
 
-        $data = $mod->orderBy('created_at', 'desc')->paginate(15);
+        $data = $mod->orderBy('created_at', 'desc')->paginate(15);  
 
-        return view('reservation.index', compact('data'));
+        return view('reservation.index', compact('data', 'hotels', 'visitor_name', 'hotel_id', 'gm_status', 'om_status', 'period'));
     }
 
     public function create(Request $request){

@@ -32,7 +32,7 @@ Route::post('/hotel/edit', 'HotelController@edit')->name('hotel.edit');
 Route::get('/hotel/delete/{id}', 'HotelController@delete')->name('hotel.delete');
 
 
-Route::get('/reservation/index', 'ReservationController@index')->name('reservation.index');
+Route::any('/reservation/index', 'ReservationController@index')->name('reservation.index');
 Route::get('/reservation/create', 'ReservationController@create')->name('reservation.create');
 Route::post('/reservation/save', 'ReservationController@save')->name('reservation.save');
 Route::get('/reservation/edit/{id}', 'ReservationController@edit')->name('reservation.edit');

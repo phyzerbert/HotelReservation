@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('style')    
+	<link href="{{asset('master/global_assets/js/plugins/daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css">
+@endsection
 @section('content')
     <div class="content-wrapper">
         <div class="page-header page-header-light">
@@ -30,6 +32,7 @@
         <div class="content">
             <div class="card">
                 <div class="card-header">
+                    @include('reservation.filter')
                     @if ($role == 'data_editor')
                         <a href="{{route('reservation.create')}}" class="btn btn-primary float-right" id="btn-add"><i class="icon-plus-circle2 mr-2"></i> Add New</a>
                     @endif
@@ -47,6 +50,7 @@
                                     <th>Check Out Date</th>
                                     <th>Office Manager Status</th>
                                     <th>General Manager Status</th>
+                                    <th>Request Date</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
@@ -77,6 +81,7 @@
                                                 <span class="badge badge-success">Accepted</span>
                                             @endif
                                         </td>
+                                        <td class="request_date">{{date('Y-m-d', strtotime($item->created_at))}}</td>
                                         <td class="py-1 action">
                                             <a href="{{route('reservation.edit', $item->id)}}" class="btn bg-blue btn-icon rounded-round btn-edit" data-popup="tooltip" title="Detail" data-placement="top"><i class="icon-file-eye2"></i></a>
                                             @if ($role == 'data_editor') 
@@ -145,6 +150,7 @@
 @endsection
 
 @section('script')
+<script src="{{asset('master/global_assets/js/plugins/daterangepicker/jquery.daterangepicker.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         $(".btn-reply").click(function(){
@@ -174,6 +180,18 @@
             $("#reply_form .hotel").val(hotel);
             $("#reply_form .status").val(status);
             $("#replyModal").modal();
+        });
+
+        $("#period").dateRangePicker({
+            autoClose: false,
+        });
+
+        $("#btn-reset").click(function(){
+            $("#search_visitor_name").val('');
+            $("#search_hotel_id").val('');
+            $("#search_gm_status").val('');
+            $("#search_om_status").val('');
+            $("#period").val('');
         });
     });
 </script>
