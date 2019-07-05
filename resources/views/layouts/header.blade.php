@@ -39,7 +39,7 @@
                     <div class="dropdown-content-header d-block text-center">
                         <span class="font-weight-semibold">Notifications</span>
                     </div>
-
+                    <hr class="my-0">
                     <div class="dropdown-content-body dropdown-scrollable">
                         <ul class="media-list">
                             @foreach ($recent_messages as $item)
@@ -58,42 +58,49 @@
                                     }                                    
                                 @endphp 
                                 <li class="media">
-                                    <div class="mr-3 position-relative">
-                                        <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon">
+                                    <div class="mr-3 position-relative">                                        
                                             @switch($item->type)
                                                 @case("new_reservation")
-                                                    <i class="icon-new"></i>
+                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon">
+                                                        <i class="icon-new"></i>
+                                                    </a>
                                                     @break
                                                 @case("om_accept")
-                                                    <i class="icon-file-check"></i>
+                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-info text-info rounded-round border-2 btn-icon">
+                                                        <i class="icon-file-check"></i>
+                                                    </a>
                                                     @break
                                                 @case("gm_accept")
-                                                    <i class="icon-file-check2"></i>
+                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-success text-success rounded-round border-2 btn-icon">
+                                                        <i class="icon-file-check2"></i>
+                                                    </a>
                                                     @break
                                                 @default
-                                                    <i class="icon-bubble-notification"></i>
+                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-warning text-warning rounded-round border-2 btn-icon">
+                                                        <i class="icon-bubble-notification"></i>
+                                                    </a>
                                             @endswitch
-                                        </a>
+                                        
                                     </div>
 
                                     <div class="media-body">
                                         <div class="media-title">
                                             <a href="{{route('reservation.edit', $item->reservation->id)}}">
-                                                <span class="font-weight-semibold">
+                                                
                                                     @switch($item->type)
                                                         @case("new_reservation")
-                                                            New Reservation
+                                                            <span class="font-weight-semibold text-primary">New Reservation</span>
                                                             @break
                                                         @case("om_accept")
-                                                            Office Manager Accept
+                                                            <span class="font-weight-semibold text-info">Office Manager Accept</span>
                                                             @break
                                                         @case("gm_accept")
-                                                            General Manager Accept
+                                                            <span class="font-weight-semibold text-success">General Manager Accept</span>
                                                             @break
                                                         @default
-                                                            New Nofification
+                                                            <span class="font-weight-semibold text-warning">New Nofification</span>
                                                     @endswitch 
-                                                </span>
+                                                
                                                 <span class="text-muted float-right font-size-sm"> {{$time}} </span>
                                             </a>
                                         </div>

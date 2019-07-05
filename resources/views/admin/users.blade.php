@@ -58,7 +58,7 @@
                                         <td class="role" data-id="{{$item->role_id}}">{{$item->role->name}}</td>
                                         <td class="phone">{{$item->phone_number}}</td>
                                         @if ($role == 'general_manager')
-                                            <td class="py-1">
+                                            <td class="py-1 action">
                                                 <a href="#" class="btn bg-blue btn-icon rounded-round btn-edit" data-id="{{$item->id}}"  data-popup="tooltip" title="Edit" data-placement="top"><i class="icon-pencil7"></i></a>
                                                 <a href="{{route('user.delete', $item->id)}}" class="btn bg-danger text-pink-800 btn-icon rounded-round ml-2" data-popup="tooltip" title="Delete" data-placement="top" onclick="return window.confirm('Are you sure?')"><i class="icon-trash"></i></a>
                                             </td>

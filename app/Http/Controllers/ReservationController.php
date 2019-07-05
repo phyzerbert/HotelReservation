@@ -154,23 +154,27 @@ class ReservationController extends Controller
             $item->om_status = $request->get('status');
             $item->om_date = date('Y-m-d H:i:s');
             $item->save();
-            $content = "Office Manager accepted a reservation.";
-            Notification::create([
-                'type' => 'om_accept',
-                'content' => $content,
-                'reservation_id' => $item->id,
-            ]);
+            if($item->om_status == 2){
+                $content = "Office Manager accepted a reservation.";
+                Notification::create([
+                    'type' => 'om_accept',
+                    'content' => $content,
+                    'reservation_id' => $item->id,
+                ]);
+            }
         }else if($role = 'general_manager'){
             $item->gm_id = $user->id;
             $item->gm_status = $request->get('status');
             $item->gm_date = date('Y-m-d H:i:s');
             $item->save();
-            $content = "General Manager accepted a reservation.";
-            Notification::create([
-                'type' => 'gm_accept',
-                'content' => $content,
-                'reservation_id' => $item->id,
-            ]);
+            if($item->gm_status == 2){
+                $content = "General Manager accepted a reservation.";
+                Notification::create([
+                    'type' => 'gm_accept',
+                    'content' => $content,
+                    'reservation_id' => $item->id,
+                ]);
+            }
         }
 
         // Mail::to($item->visitor_email)->send(new ReservationMail($item));

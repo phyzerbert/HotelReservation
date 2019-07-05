@@ -69,7 +69,7 @@
                                                 <span class="badge badge-primary">Suite</span>
                                             @endif
                                         </td>
-                                        <td class="py-1">
+                                        <td class="py-1 action">
                                             <a href="#" class="btn bg-blue btn-icon rounded-round btn-edit" data-id="{{$item->id}}"  data-popup="tooltip" title="Edit" data-placement="top"><i class="icon-pencil7"></i></a>
                                             <a href="{{route('hotel.delete', $item->id)}}" class="btn bg-danger text-pink-800 btn-icon rounded-round ml-2" data-popup="tooltip" title="Delete" data-placement="top" onclick="return window.confirm('Are you sure?')"><i class="icon-trash"></i></a>
                                         </td>

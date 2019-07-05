@@ -27,7 +27,7 @@
         @php
             $role = Auth::user()->role->slug;
         @endphp
-        <div class="content">
+        <div class="container content">
             <div class="card">
                 <div class="navbar navbar-light navbar-expand-lg shadow-0 py-lg-2">
                     <div class="text-center d-lg-none w-100">
@@ -45,21 +45,13 @@
                             <div class="btn-group ml-3 mr-lg-3">
                                 <button type="button" id="top-delete-btn" class="btn btn-light"><i class="icon-bin"></i> <span class="d-none d-lg-inline-block ml-2">Delete</span></button>
                             </div>
-                        </div>
+                        </div>                        
 
-                        <div class="navbar-text ml-lg-auto"><span class="font-weight-semibold">1-50</span> of <span class="font-weight-semibold">528</span></div>
-
-                        <div class="ml-lg-3 mb-3 mb-lg-0">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-light btn-icon disabled"><i class="icon-arrow-right13"></i></button>
-                                <button type="button" class="btn btn-light btn-icon"><i class="icon-arrow-left12"></i></button>
-                            </div>
+                        <div class="mb-3 mb-lg-0 ml-auto mr-3">
+                            {!! $data->appends([])->links() !!}
                         </div>
                     </div>
                 </div>
-                <!-- /action toolbar -->
-
-
                 <!-- Table -->
                 <div class="table-responsive">
                     <table class="table table-inbox">
@@ -99,7 +91,7 @@
                                         @endswitch
                                     </td>
                                     <td class="table-inbox-name">
-                                        <a href="#">                                            
+                                        <a href="{{route('reservation.edit', $item->reservation->id)}}">                                            
                                             @switch($item->type)
                                                 @case("new_reservation")
                                                     <div class="letter-icon-title text-default">New Reservation</div>
@@ -131,9 +123,6 @@
             </div>
         </div>                
     </div>
-
-
-
 @endsection
 
 @section('script')

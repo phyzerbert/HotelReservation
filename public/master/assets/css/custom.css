@@ -3,3 +3,15 @@
 .sidebar-content {
     font-size: 0.9rem;
 }
+
+table td.action {
+    min-width: 130px;
+}
+
+table td.check_in_date {
+    min-width: 120px;
+}
+
+table td.check_out_date {
+    min-width: 120px;
+}

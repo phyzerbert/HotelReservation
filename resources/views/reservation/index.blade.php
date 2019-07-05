@@ -77,7 +77,7 @@
                                                 <span class="badge badge-success">Accepted</span>
                                             @endif
                                         </td>
-                                        <td class="py-1">
+                                        <td class="py-1 action">
                                             <a href="{{route('reservation.edit', $item->id)}}" class="btn bg-blue btn-icon rounded-round btn-edit" data-popup="tooltip" title="Detail" data-placement="top"><i class="icon-file-eye2"></i></a>
                                             @if ($role == 'data_editor') 
                                                 <a href="{{route('reservation.delete', $item->id)}}" class="btn bg-danger text-pink-800 btn-icon rounded-round ml-2" data-popup="tooltip" title="Delete" data-placement="top" onclick="return window.confirm('Are you sure?')"><i class="icon-trash"></i></a>
@@ -148,6 +148,22 @@
 <script>
     $(document).ready(function () {
         $(".btn-reply").click(function(){
+            let om_status = $(this).parents('tr').find('.om_status').data('id');
+            let gm_status = $(this).parents('tr').find('.gm_status').data('id');
+            let role = "{{ $role }}";
+
+            if(role == 'general_manager'){
+                if(gm_status != "0"){
+                    alert("Already replied."); return false;
+                }
+            }
+
+            if(role == 'office_manager'){
+                if(gm_status != "0"){
+                    alert("General Manager replied already."); return false;
+                }
+            }
+
             let id = $(this).data('id');
             let visitor = $(this).parents('tr').find('.visitor_name').text().trim();
             let hotel = $(this).parents('tr').find('.hotel').data('id');

@@ -25,7 +25,7 @@
             </div>
         </div>
         
-        <div class="content">
+        <div class="container content">
 			<div class="d-md-flex align-items-md-start">
                 <div class="sidebar sidebar-light bg-transparent sidebar-component sidebar-component-left wmin-300 border-0 shadow-0 sidebar-expand-md">
                     <div class="sidebar-content"> 
@@ -76,7 +76,7 @@
                     <div class="tab-pane fade active show" id="profile">
                         <div class="card">
                             <div class="card-header header-elements-inline">
-                                <h5 class="card-title">{{__('page.profile')}}</h5>
+                                <h5 class="card-title">Profile</h5>
                                 <div class="header-elements">
                                     <div class="list-icons">
                                         <a class="list-icons-item" data-action="collapse"></a>
