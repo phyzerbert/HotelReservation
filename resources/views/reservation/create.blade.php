@@ -112,7 +112,7 @@
                             <div class="col-md-4 companion_name">
                                 <div class="form-group">
                                     <label>Name: <span class="text-danger">*</span></label>
-                                    <input type="text" name="companion_name[]" placeholder="Companion Name" class="form-control required">
+                                    <input type="text" name="companion_name[]" placeholder="Companion Name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 companion_id_number">
@@ -229,7 +229,7 @@
                 <div class="col-md-4 companion_name">
                     <div class="form-group">
                         <label>Name: <span class="text-danger">*</span></label>
-                        <input type="text" name="companion_name[]" placeholder="Companion Name" class="form-control required">
+                        <input type="text" name="companion_name[]" placeholder="Companion Name" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4 companion_id_number">
