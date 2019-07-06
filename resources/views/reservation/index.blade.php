@@ -190,7 +190,8 @@
 
         $('.daterange-basic').daterangepicker({
             applyClass: 'bg-slate-600',
-            cancelClass: 'btn-light',   
+            cancelClass: 'btn-light',
+            autoApply: true, 
             locale: {
                 format: 'YYYY-MM-DD',
                 direction: 'rtl'
@@ -204,6 +205,10 @@
             $("#search_om_status").val('');
             $("#period").val('');
         });
+        var initial_range = "{{$period}}";
+        if(initial_range == ""){            
+            $("#period").val("");
+        }
     });
 </script>
 @endsection
