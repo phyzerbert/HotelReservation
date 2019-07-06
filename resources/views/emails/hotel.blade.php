@@ -392,12 +392,12 @@
 							</div>
 						</div>
 					</div>
-					<div style="background-color:#EAE3DD;">
+					<div style="background-color:transparent;">
 						<div class="block-grid mixed-two-up" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #EDEDED;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#EDEDED;">								
 								<div class="col num12" data-body-width-son="416" rel="col-num-container-box-son" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 416px;">
 									<div style="width:100% !important;">
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 20px; padding-left: 20px;">
 											<div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:180%;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
 												<div style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; line-height: 21px; color: #555555;">
 													<p style="font-size: 18px; line-height: 32px; margin: 0;">
@@ -427,8 +427,7 @@
 															Companions: 
 														</span></strong>
 													</p>
-													@foreach ($reservation->companions as $item)
-														
+													@foreach ($reservation->companions as $item)														
 														<ul>
 															<li style="font-size: 14px; line-height: 25px;">
 																Name: {{$item->name}} 
@@ -478,7 +477,7 @@
 							</div>
 						</div>
 					</div>
-					<div style="background-color:#EAE3DD;">
+					<div style="background-color:transparent;">
 						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
 								<div class="col num12" data-body-width-son="625" rel="col-num-container-box-son" style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
@@ -489,6 +488,35 @@
 													<span style="font-size: 20px;">Reservations Supervisor</span>
 												</p>
 											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="background-color:transparent;">
+						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
+								<div class="col num12" data-body-width-son="625" rel="col-num-container-box-son" style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
+									<div style="width:100% !important;">
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+											<!--<![endif]-->
+											<table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
+												<tbody>
+													<tr style="vertical-align: top;" valign="top">
+														<td class="divider_inner" style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-collapse: collapse;" valign="top">
+															<table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; border-top: 0px solid transparent;"
+																valign="top" width="100%">
+																<tbody>
+																	<tr style="vertical-align: top;" valign="top">
+																		<td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse;" valign="top"><span></span></td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
 									</div>
 								</div>

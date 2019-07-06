@@ -38,7 +38,9 @@
 </head>
 
 <body>
-
+	<div id="ajax-loading" class="text-center">
+		<img class="mx-auto" src="{{asset('images/loader.gif')}}" width="70" alt="" style="margin:45vh auto;">
+	</div>
 	@include('layouts.header')
 
 	<div class="page-content">

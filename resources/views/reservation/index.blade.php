@@ -138,7 +138,7 @@
                         </div>
                     </div>    
                     <div class="modal-footer">
-                        <button type="submit" id="btn_create" class="btn btn-primary btn-submit"><i class="icon-paperplane"></i>&nbsp;Save</button>
+                        <button type="submit" id="btn_reply" class="btn btn-primary btn-submit"><i class="icon-paperplane"></i>&nbsp;Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-close2"></i>&nbsp;Close</button>
                     </div>
                 </form>
@@ -200,6 +200,10 @@
                 format: 'YYYY-MM-DD',
                 direction: 'rtl'
             }
+        });
+
+        $("#btn_reply").click(function(){
+            $("#ajax-loading").show();
         });
 
         $("#btn-reset").click(function(){
