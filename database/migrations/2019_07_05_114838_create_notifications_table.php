@@ -19,6 +19,8 @@ class CreateNotificationsTable extends Migration
             $table->string('content')->nullable();
             $table->integer('status')->default(0);
             $table->integer('reservation_id')->nullable();
+            $table->integer('om_read')->default(0);
+            $table->integer('gm_read')->default(0);
             $table->timestamps();
         });
     }

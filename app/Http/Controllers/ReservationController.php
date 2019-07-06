@@ -115,8 +115,19 @@ class ReservationController extends Controller
         
     }
 
-    public function edit($id){
+    public function edit(Request $request, $id){
         $reservation = Reservation::find($id);
+        if($request->has('read') && $request->get('read') != ""){
+            $noti = Notification::find($request->get('read'));
+            if(Auth::user()->role->slug == 'office_manager'){
+                $noti->om_status = 1;
+                $noti->save();
+            }
+            if(Auth::user()->role->slug == 'general_manager'){
+                $noti->gm_status = 1;
+                $noti->save();
+            }
+        }
         $companions = $reservation->companions;
         $hotels = Hotel::all();
         return view('reservation.detail', compact('reservation' ,'companions', 'hotels'));

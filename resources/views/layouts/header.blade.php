@@ -24,13 +24,21 @@
         </ul>
 
         <span class="badge bg-success ml-md-3 mr-md-auto">Online</span>
-
+        @php
+            $role = Auth::user()->role->slug;
+            if($role == 'general_manager'){
+                $unreads = \App\Models\Notification::where('gm_status', 0)->count();
+            }
+            if($role == 'office_manager'){
+                $unreads = \App\Models\Notification::where('0m_status', 0)->count();
+            }
+        @endphp
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a href="animations_velocity_basic.html#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
                     <i class="icon-bell3"></i>
                     <span class="d-md-none ml-2">Notifications</span>
-                    {{-- <span class="badge badge-pill bg-warning-400 ml-auto ml-md-0">2</span> --}}
+                    <span class="badge badge-pill bg-warning-400 ml-auto ml-md-0">{{$unreads}}</span>
                 </a>
                 @php
                     $recent_messages = \App\Models\Notification::orderBy('created_at', 'desc')->limit(5)->get();
@@ -61,22 +69,22 @@
                                     <div class="mr-3 position-relative">                                        
                                             @switch($item->type)
                                                 @case("new_reservation")
-                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon">
+                                                    <a href="{{route('reservation.edit', $item->reservation->id).'?read='.$item->id}}" class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon">
                                                         <i class="icon-new"></i>
                                                     </a>
                                                     @break
                                                 @case("om_accept")
-                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-info text-info rounded-round border-2 btn-icon">
+                                                    <a href="{{route('reservation.edit', $item->reservation->id).'?read='.$item->id}}" class="btn bg-transparent border-info text-info rounded-round border-2 btn-icon">
                                                         <i class="icon-file-check"></i>
                                                     </a>
                                                     @break
                                                 @case("gm_accept")
-                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-success text-success rounded-round border-2 btn-icon">
+                                                    <a href="{{route('reservation.edit', $item->reservation->id).'?read='.$item->id}}" class="btn bg-transparent border-success text-success rounded-round border-2 btn-icon">
                                                         <i class="icon-file-check2"></i>
                                                     </a>
                                                     @break
                                                 @default
-                                                    <a href="{{route('reservation.edit', $item->reservation->id)}}" class="btn bg-transparent border-warning text-warning rounded-round border-2 btn-icon">
+                                                    <a href="{{route('reservation.edit', $item->reservation->id).'?read='.$item->id}}" class="btn bg-transparent border-warning text-warning rounded-round border-2 btn-icon">
                                                         <i class="icon-bubble-notification"></i>
                                                     </a>
                                             @endswitch
@@ -85,8 +93,7 @@
 
                                     <div class="media-body">
                                         <div class="media-title">
-                                            <a href="{{route('reservation.edit', $item->reservation->id)}}">
-                                                
+                                            <a href="{{route('reservation.edit', $item->reservation->id).'?read='.$item->id}}">                                                
                                                     @switch($item->type)
                                                         @case("new_reservation")
                                                             <span class="font-weight-semibold text-primary">New Reservation</span>
