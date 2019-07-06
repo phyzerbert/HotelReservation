@@ -341,8 +341,7 @@
 													style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; line-height: 14px; color: #FFFFFF;">
 													<div
 														style="line-height: 14px; font-size: 12px; text-align: center;">
-														<span style="font-size: 26px; line-height: 31px;">Your
-															Reservation</span></div>
+														<span style="font-size: 26px; line-height: 31px;">New Reservation</span></div>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -390,34 +389,18 @@
 										<div
 											style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
-											<div align="center" class="img-container center autowidth fullwidth"
-												style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img
-													align="center" alt="Image" border="0"
-													class="center autowidth fullwidth" src="{{asset('images/email_banner.jpg')}}"
-													style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 208px; display: block;"
-													title="Image" width="208" />
+											<div align="center" class="img-container center autowidth fullwidth" style="padding-right: 0px;padding-left: 0px;">
+												<img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="{{asset('images/email_banner.jpg')}}" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 208px; display: block;" title="Image" width="208" />
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
-											<!--[if (!mso)&(!IE)]><!-->
 										</div>
-										<!--<![endif]-->
 									</div>
 								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="416" style="background-color:#EDEDED;width:416px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
-								<div class="col num8" data-body-width-son="416" rel="col-num-container-box-son"
-									style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 416px;">
+								<div class="col num8" data-body-width-son="416" rel="col-num-container-box-son" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 416px;">
 									<div style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div
-											style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-											<!--<![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px; font-family: Arial, sans-serif"><![endif]-->
-											<div
-												style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:180%;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
-												<div
-													style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; line-height: 21px; color: #555555;">
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+											<div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:180%;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
+												<div style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; line-height: 21px; color: #555555;">
 													<p style="font-size: 18px; line-height: 32px; margin: 0;">
 														<strong><span style="font-size: 18px; line-height: 28px;">
 															Reservation Data</span></strong>
@@ -434,6 +417,12 @@
 														</span></li>
 														<li style="font-size: 16px; line-height: 30px;"><span style="line-height: 30px; font-size: 16px;">
 															Visit Date: {{$reservation->visit_date}} 
+														</span></li>
+														<li style="font-size: 16px; line-height: 30px;"><span style="line-height: 30px; font-size: 16px;">
+															Rooms: {{$reservation->number_of_rooms}} 
+														</span></li>														
+														<li style="font-size: 16px; line-height: 30px;"><span style="line-height: 30px; font-size: 16px;">
+															Companions: {{$reservation->companions()->count()}} 
 														</span></li>
 													</ul>
 												</div>
