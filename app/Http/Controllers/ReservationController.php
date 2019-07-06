@@ -8,6 +8,7 @@ use App\Models\Hotel;
 use App\Models\Companion;
 use App\Models\NumberOfRoom;
 use App\Models\Notification;
+use App\User;
 
 use Auth;
 use Illuminate\Support\Facades\Mail;
