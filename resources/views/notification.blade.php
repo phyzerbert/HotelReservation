@@ -75,6 +75,24 @@
                                     <td class="table-inbox-checkbox rowlink-skip">
                                         <input type="checkbox" data-id="{{$item->id}}" class="form-input-styled mail-check" data-fouc>
                                     </td>
+                                    <td class="table-inbox-star rowlink-skip">
+                                        @if ($role == 'general_manager')
+                                            @if($item->gm_status == 1)
+                                                <i class="icon-star-full2 text-warning-300"></i>
+                                            @else
+                                                <i class="icon-star-empty3 text-muted"></i>
+                                            @endif
+                                        @endif
+                                        @if ($role == 'office_manager')
+                                            @if($item->om_status == 1)
+                                                <i class="icon-star-full2 text-warning-300"></i>
+                                            @else
+                                                <i class="icon-star-empty3 text-muted"></i>
+                                            @endif
+                                        @endif                                       
+                                        
+
+									</td>
                                     <td class="text-center" width="80">                                        
                                         @switch($item->type)
                                             @case("new_reservation")
