@@ -282,13 +282,41 @@
 
 <body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #EAE3DD;">
 	<!--[if IE]><div class="ie-browser"><![endif]-->
-	<table bgcolor="#EAE3DD" cellpadding="0" cellspacing="0" class="nl-container" role="presentation"
-		style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #EAE3DD; width: 100%;"
-		valign="top" width="100%">
+	<table bgcolor="#EAE3DD" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #EAE3DD; width: 100%;" valign="top" width="100%">
 		<tbody>
 			<tr style="vertical-align: top;" valign="top">
-				<td style="word-break: break-word; vertical-align: top; border-collapse: collapse;" valign="top">
-					<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#EAE3DD"><![endif]-->
+				<td style="word-break: break-word; vertical-align: top; border-collapse: collapse;" valign="top">					
+					<div style="background-color:transparent;">
+						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
+								<div class="col num12" data-body-width-son="625" rel="col-num-container-box-son"
+									style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
+									<div style="width:100% !important;"> 
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+											<!--<![endif]-->
+											<table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
+												<tbody>
+													<tr style="vertical-align: top;" valign="top">
+														<td class="divider_inner"
+															style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-collapse: collapse;"
+															valign="top">
+															<table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; border-top: 0px solid transparent;" valign="top" width="100%">
+																<tbody>
+																	<tr style="vertical-align: top;" valign="top">
+																		<td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse;" valign="top"><span></span></td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
 					<div style="background-color:#EAE3DD;">
 						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father"
 							style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #ffffff;">
@@ -299,25 +327,14 @@
 									style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
 									<div style="width:100% !important;">
 										<!--[if (!mso)&(!IE)]><!-->
-										<div
-											style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 0px; padding-left: 0px;">
+										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
-											<div align="center" class="img-container center autowidth"
-												style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img
-													align="center" alt="Image" border="0" class="center autowidth"
-													src="{{asset('images/logo.png')}}"
-													style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 100px; display: block;"
-													title="Image" width="100" />
-												<!--[if mso]></td></tr></table><![endif]-->
+											<div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
+												<img align="center" alt="Image" border="0" class="center autowidth" src="{{asset('images/logo.png')}}" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 100px; display: block;" title="Image" width="100" />
 											</div>
-											<!--[if (!mso)&(!IE)]><!-->
 										</div>
-										<!--<![endif]-->
 									</div>
 								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 							</div>
 						</div>
 					</div>
@@ -376,32 +393,21 @@
 						</div>
 					</div>
 					<div style="background-color:#EAE3DD;">
-						<div class="block-grid mixed-two-up" data-body-width-father="625px"
-							rel="col-num-container-box-father"
-							style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #EDEDED;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#EDEDED;">
-								<div class="col num4" data-body-width-son="208" rel="col-num-container-box-son"
-									style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 208px;">
-									<div style="width:100% !important;">
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-											<div align="center" class="img-container center autowidth fullwidth" style="padding-right: 0px;padding-left: 0px;">
-												<img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="{{asset('images/email_banner.jpg')}}" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 208px; display: block;" title="Image" width="208" />
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col num8" data-body-width-son="416" rel="col-num-container-box-son" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 416px;">
+						<div class="block-grid mixed-two-up" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #EDEDED;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#EDEDED;">								
+								<div class="col num12" data-body-width-son="416" rel="col-num-container-box-son" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 416px;">
 									<div style="width:100% !important;">
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:180%;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
 												<div style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; line-height: 21px; color: #555555;">
 													<p style="font-size: 18px; line-height: 32px; margin: 0;">
 														<strong><span style="font-size: 18px; line-height: 28px;">
-															Reservation Data</span></strong>
-														</p>
+															Reservation Data
+														</span></strong>
+													</p>
 													<ul>
 														<li style="font-size: 16px; line-height: 30px;">
-															Visitor Name: {{$reservation->hotel->name}} 
+															Visitor Name: {{$reservation->visitor_name}} 
 														</li>
 														<li style="font-size: 16px; line-height: 30px;"><span style="line-height: 30px; font-size: 16px;">
 															Visitor Email: {{$reservation->visitor_email}} 
@@ -414,11 +420,27 @@
 														</span></li>
 														<li style="font-size: 16px; line-height: 30px;"><span style="line-height: 30px; font-size: 16px;">
 															Rooms: {{$reservation->number_of_rooms}} 
-														</span></li>														
-														<li style="font-size: 16px; line-height: 30px;"><span style="line-height: 30px; font-size: 16px;">
-															Companions: {{$reservation->companions()->count()}} 
 														</span></li>
 													</ul>
+													<p style="font-size: 16px; line-height: 30px; margin: 0;">
+														<strong><span style="font-size: 16px; line-height: 26px;">
+															Companions: 
+														</span></strong>
+													</p>
+													@foreach ($reservation->companions as $item)
+														
+														<ul>
+															<li style="font-size: 14px; line-height: 25px;">
+																Name: {{$item->name}} 
+															</li>
+															<li style="font-size: 14px; line-height: 25px;"><span style="line-height: 25px; font-size: 14px;">
+																Id Number: {{$item->id_number}} 
+															</span></li>
+															<li style="font-size: 14px; line-height: 25px;"><span style="line-height: 25px; font-size: 14px;">
+																Phone Number: {{$item->phone_number}} 
+															</span></li>
+														</ul>
+													@endforeach
 												</div>
 											</div>
 										</div>
@@ -456,37 +478,6 @@
 							</div>
 						</div>
 					</div>
-					<div style="background-color:transparent;">
-						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-								<div class="col num12" data-body-width-son="625" rel="col-num-container-box-son"
-									style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
-									<div style="width:100% !important;"> 
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-											<!--<![endif]-->
-											<table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
-												<tbody>
-													<tr style="vertical-align: top;" valign="top">
-														<td class="divider_inner"
-															style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-collapse: collapse;"
-															valign="top">
-															<table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; border-top: 0px solid transparent;" valign="top" width="100%">
-																<tbody>
-																	<tr style="vertical-align: top;" valign="top">
-																		<td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse;" valign="top"><span></span></td>
-																	</tr>
-																</tbody>
-															</table>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div style="background-color:#EAE3DD;">
 						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father" style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
@@ -495,7 +486,8 @@
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<div style="color:#892C63;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
 												<p style="font-size: 12px; line-height: 24px; color: #892C63; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0;">
-													<span style="font-size: 20px;">Reservations Supervisor</span></p>
+													<span style="font-size: 20px;">Reservations Supervisor</span>
+												</p>
 											</div>
 										</div>
 									</div>
