@@ -162,13 +162,17 @@
 
             if(role == 'general_manager'){
                 if(gm_status != "0"){
-                    alert("Already replied."); return false;
+                    alert("Replied already."); return false;
                 }
             }
 
             if(role == 'office_manager'){
                 if(gm_status != "0"){
                     alert("General Manager replied already."); return false;
+                }
+
+                if(om_status != "0"){
+                    alert("Replied already."); return false;
                 }
             }
 

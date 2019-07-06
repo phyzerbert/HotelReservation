@@ -97,6 +97,10 @@ class ReservationController extends Controller
             'content' => $content,
             'reservation_id' => $item->id,
         ]);
+        $managers = User::where('role_id', [1, 2])->get();
+        foreach ($managers as $manager) {
+            Mail::to($manager->email)->send(new ReservationMail($item));
+        }
         for ($i=0; $i < count($data['companion_name']); $i++) { 
             Companion::create([
                 'reservation_id' => $item->id,
@@ -195,7 +199,6 @@ class ReservationController extends Controller
                     'content' => $content,
                     'reservation_id' => $item->id,
                 ]);
-                // Mail::to($item->visitor_email)->send(new ReservationMail($item));
                 if(isset($item->hotel->email)){
                     $url = route('hotel_verify', [$item->id, csrf_token()]); 
                     Mail::to($item->hotel->email)->send(new HotelMail($item, $url));

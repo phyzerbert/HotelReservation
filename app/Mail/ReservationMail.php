@@ -31,6 +31,7 @@ class ReservationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.reservation_reply');
+        // return $this->view('emails.reservation_reply');
+        return $this->view('emails.reservation;');
     }
 }
