@@ -23,6 +23,7 @@ class HotelController extends Controller
         $request->validate([
             'name'=>'required|string',
             'email'=>'required|email',
+            'url'=>'required',
         ]);
         $data = $request->all();
         Hotel::create($data);
@@ -33,6 +34,7 @@ class HotelController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required|email',
+            'url'=>'required',
         ]);
         $data = $request->all();
         $item = Hotel::find($request->get("id"));

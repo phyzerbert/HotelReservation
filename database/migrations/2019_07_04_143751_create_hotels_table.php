@@ -20,6 +20,7 @@ class CreateHotelsTable extends Migration
             $table->integer('stars')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
+            $table->string('url')->nullable();
             $table->string('number_of_rooms')->nullable();
             $table->string('room_type')->nullable();
             $table->timestamps();

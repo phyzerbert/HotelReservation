@@ -45,6 +45,7 @@
                                     <th style="min-width:154px;">Stars</th>
                                     <th>City</th>
                                     <th>Address</th>
+                                    <th>URL</th>
                                     <th>Number Of Rooms</th>
                                     <th>Room Type</th>
                                     <th>Action</th> 
@@ -63,6 +64,7 @@
                                         </td>
                                         <td class="city">{{$item->city}}</td>
                                         <td class="address">{{$item->address}}</td>
+                                        <td class="url"><a href="{{$item->url}}" target="_blank">{{$item->url}}</a></td>
                                         <td class="number_of_rooms">{{$item->number_of_rooms}}</td>
                                         <td class="room_type" data-id="{{$item->room_type}}">
                                             @if (!$item->room_type)
@@ -141,6 +143,13 @@
                             </span>
                         </div>
                         <div class="form-group">
+                            <label class="control-label">URL</label>
+                            <input class="form-control url" type="text" name="url" placeholder="URL">
+                            <span id="url_error" class="invalid-feedback">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Room Type</label>
                             <select class="form-control room_type" name="room_type" placeholder="Room Type">
                                 <option value="0">Room</option>
@@ -209,6 +218,13 @@
                             <label class="control-label">Address</label>
                             <input class="form-control address" type="text" name="address" placeholder="Address">
                             <span id="edit_address_error" class="invalid-feedback">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">URL</label>
+                            <input class="form-control url" type="text" name="url" placeholder="URL">
+                            <span id="edit_url_error" class="invalid-feedback">
                                 <strong></strong>
                             </span>
                         </div>
@@ -295,7 +311,13 @@
                         if(messages.address) {
                             $('#address_error strong').text(data.responseJSON.errors.address[0]);
                             $('#address_error').show();
-                            $('#create_form .stars').focus();
+                            $('#create_form .address').focus();
+                        }
+                        
+                        if(messages.url) {
+                            $('#url_error strong').text(data.responseJSON.errors.url[0]);
+                            $('#url_error').show();
+                            $('#create_form .url').focus();
                         }
                         
                         if(messages.room_type) {
@@ -321,6 +343,7 @@
             let stars = $(this).parents('tr').find(".stars").data('id');
             let city = $(this).parents('tr').find(".city").text().trim();
             let address = $(this).parents('tr').find(".address").text().trim();
+            let url = $(this).parents('tr').find(".address").find('a').attr('href');
             let room_type = $(this).parents('tr').find(".room_type").data('id');
             let number_of_rooms = $(this).parents('tr').find(".number_of_rooms").text().trim();
 
@@ -331,6 +354,7 @@
             $("#editModal .stars").val(stars);
             $("#editModal .city").val(city);
             $("#editModal .address").val(address);
+            $("#editModal .url").val(url);
             $("#editModal .room_type").val(room_type);
             $("#editModal .number_of_rooms").val(number_of_rooms);
 
