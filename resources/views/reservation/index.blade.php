@@ -178,7 +178,7 @@
 
             let id = $(this).data('id');
             let visitor = $(this).parents('tr').find('.visitor_name').text().trim();
-            let hotel = $(this).parents('tr').find('.hotel').data('id');
+            let hotel = $(this).parents('tr').find('.hotel').text().trim();
             let status = $(this).data('status');
             // alert(status);
             $("#reply_form .id").val(id);
