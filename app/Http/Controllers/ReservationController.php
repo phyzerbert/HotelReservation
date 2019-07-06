@@ -214,23 +214,7 @@ class ReservationController extends Controller
                 if(isset($item->hotel->email)){
                     $url = route('hotel_verify', [$item->id, csrf_token()]); 
                     Mail::to($item->hotel->email)->send(new HotelMail($item, $url));
-                }
-                $sms_content = "Hi, ".$item->visitor_name."  Your reservation is accepted.";
-                $msg = $this->utf8_to_unicode_codepoints($sms_content);
-                $data = [
-                    'apiKey' => env('ALFA_KEY'),
-                    'numbers' => $item->visitor_phone_number,
-                    'sender' => "Mohammed",
-                    'applicationType' => '68',
-                    'msg' => $msg,
-                ];
-
-                $ch = curl_init('https://www.alfa-cell.com/api/msgSend.php');
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-
-                $response = curl_exec($ch);
-                curl_close($ch);
+                }               
 
             }
         }        
@@ -249,7 +233,4 @@ class ReservationController extends Controller
         Mail::to("xian1017@outlook.com")->send(new ReservationMail($item));
     }
 
-    public function utf8_to_unicode_codepoints($text) {
-        return ''.implode(unpack('H*', iconv("UTF-8", "UCS-2BE", $text)));
-    }
 }

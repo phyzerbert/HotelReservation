@@ -16,6 +16,24 @@ class VerifyController extends Controller
         $item = Reservation::find($id);
         $item->hotel_status = $result;
         $item->save();
+        if ($item->hotel_status == 1) {
+            $sms_content = "Hi, ".$item->visitor_name."  Your reservation is accepted.";
+            $msg = $this->utf8_to_unicode_codepoints($sms_content);
+            $data = [
+                'apiKey' => env('ALFA_KEY'),
+                'numbers' => $item->visitor_phone_number,
+                'sender' => "Mohammed",
+                'applicationType' => '68',
+                'msg' => $msg,
+            ];
+
+            $ch = curl_init('https://www.alfa-cell.com/api/msgSend.php');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+        }
         return back()->with('success', 'You have repied successfully');        
     }
 
@@ -38,10 +56,8 @@ class VerifyController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
         $response = curl_exec($ch);
-        curl_close($ch);
-        
+        curl_close($ch);        
         dump($response);
-
     }
 
     public function utf8_to_unicode_codepoints($text) {
