@@ -26,6 +26,7 @@
         <span class="badge bg-success ml-md-3 mr-md-auto">Online</span>
         @php
             $role = Auth::user()->role->slug;
+            $unreads = '';
             if($role == 'general_manager'){
                 $unreads = \App\Models\Notification::where('gm_status', 0)->count();
             }
