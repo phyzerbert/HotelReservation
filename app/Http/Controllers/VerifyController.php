@@ -18,4 +18,33 @@ class VerifyController extends Controller
         $item->save();
         return back()->with('success', 'You have repied successfully');        
     }
+
+    public function test_sms(){
+        // $msg = '00570065006C0063006F006D006500200074006F00200061006C00660061002D00630065006C006C002E0063006F006D';
+        // $source = mb_convert_encoding('test', 'unicode', 'UTF-8');
+        // $source = unpack('C*', $source);
+        $source = $this->utf8_to_unicode_codepoints("Welcome to alfa-cell");
+        dd($source);
+        $data = [
+            'apiKey' => env('ALFA_KEY'),
+            'numbers' => "8615641572188",
+            'sender' => "ABC",
+            'applicationType' => '68',
+            'msg' => $msg,
+        ];
+
+        $ch = curl_init('https://www.alfa-cell.com/api/msgSend.php');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        dump($response);
+
+    }
+
+    public function utf8_to_unicode_codepoints($text) {
+        return ''.implode(unpack('H*', iconv("UTF-8", "UCS-2BE", $text)));
+    }
 }
