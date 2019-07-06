@@ -19,7 +19,13 @@
         <option value="1" @if ($om_status == "1") selected @endif>Rejected</option>
         <option value="2" @if ($om_status == "2") selected @endif>Accepted</option>
     </select>
-    <input type="text" class="form-control form-control-sm mr-sm-2 mb-2" name="period" id="period" autocomplete="off" value="{{$period}}" placeholder="Request Date" style="max-width:170px;">
+    <div class="input-group">
+        <span class="input-group-prepend" style="height:32px;">
+            <span class="input-group-text px-2"><i class="icon-calendar22"></i></span>
+        </span>
+        <input type="text" class="form-control form-control-sm mr-sm-2 mb-2 daterange-basic" name="period" id="period" autocomplete="off" value="{{$period}}" placeholder="Request Date"> 
+    </div>
+    {{-- <input type="text" class="form-control form-control-sm mr-sm-2 mb-2" name="period" id="period" autocomplete="off" value="{{$period}}" placeholder="Request Date" style="max-width:170px;"> --}}
     <button type="submit" class="btn btn-sm btn-primary mb-2"><i class="icon-search4"></i>&nbsp;&nbsp;Search</button>
     <button type="button" class="btn btn-sm btn-info mb-2 ml-1" id="btn-reset"><i class="icon-eraser"></i>&nbsp;&nbsp;Reset</button>
 </form>

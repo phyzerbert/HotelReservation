@@ -493,8 +493,6 @@
 										<!--<![endif]-->
 									</div>
 								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 							</div>
 						</div>
 					</div>
@@ -521,15 +519,10 @@
 														<td class="divider_inner"
 															style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-collapse: collapse;"
 															valign="top">
-															<table align="center" border="0" cellpadding="0"
-																cellspacing="0" class="divider_content"
-																role="presentation"
-																style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; border-top: 0px solid transparent;"
-																valign="top" width="100%">
+															<table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; border-top: 0px solid transparent;" valign="top" width="100%">
 																<tbody>
 																	<tr style="vertical-align: top;" valign="top">
-																		<td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse;"
-																			valign="top"><span></span></td>
+																		<td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse;" valign="top"><span></span></td>
 																	</tr>
 																</tbody>
 															</table>
@@ -537,13 +530,9 @@
 													</tr>
 												</tbody>
 											</table>
-											<!--[if (!mso)&(!IE)]><!-->
 										</div>
-										<!--<![endif]-->
 									</div>
 								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 							</div>
 						</div>
 					</div>
@@ -551,30 +540,19 @@
 						<div class="block-grid" data-body-width-father="625px" rel="col-num-container-box-father"
 							style="Margin: 0 auto; min-width: 320px; max-width: 625px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EAE3DD;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:625px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="625" style="background-color:#FFFFFF;width:625px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px;"><![endif]-->
-								<div class="col num12" data-body-width-son="625" rel="col-num-container-box-son"
-									style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
+								<div class="col num12" data-body-width-son="625" rel="col-num-container-box-son" style="min-width: 320px; max-width: 625px; display: table-cell; vertical-align: top;">
 									<div style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
 										<div
 											style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-											<div
-												style="color:#892C63;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
-												<p
-													style="font-size: 12px; line-height: 24px; color: #892C63; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0;">
+											<div style="color:#892C63;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
+												<p style="font-size: 12px; line-height: 24px; color: #892C63; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0;">
 													<span style="font-size: 20px;">Reservations Supervisor</span></p>
 											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if (!mso)&(!IE)]><!-->
 										</div>
-										<!--<![endif]-->
 									</div>
 								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 							</div>
 						</div>
 					</div>
@@ -582,7 +560,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<!--[if (IE)]></div><![endif]-->
 </body>
 
 </html>

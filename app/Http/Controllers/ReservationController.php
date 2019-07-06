@@ -50,7 +50,7 @@ class ReservationController extends Controller
         if ($request->get('period') != ""){   
             $period = $request->get('period');
             $from = substr($period, 0, 10);
-            $to = substr($period, 14, 10);
+            $to = substr($period, 13, 10);
             $mod = $mod->whereBetween('created_at', [$from, $to]);
         }
 

@@ -150,7 +150,9 @@
 @endsection
 
 @section('script')
-<script src="{{asset('master/global_assets/js/plugins/daterangepicker/jquery.daterangepicker.min.js')}}"></script>
+<script src="{{asset('master/global_assets/js/plugins/ui/moment/moment.min.js')}}"></script>
+<script src="{{asset('master/global_assets/js/plugins/pickers/daterangepicker.js')}}"></script>
+{{-- <script src="{{asset('master/global_assets/js/plugins/daterangepicker/jquery.daterangepicker.min.js')}}"></script> --}}
 <script>
     $(document).ready(function () {
         $(".btn-reply").click(function(){
@@ -182,8 +184,17 @@
             $("#replyModal").modal();
         });
 
-        $("#period").dateRangePicker({
-            autoClose: false,
+        // $("#period").dateRangePicker({
+        //     autoClose: false,
+        // });
+
+        $('.daterange-basic').daterangepicker({
+            applyClass: 'bg-slate-600',
+            cancelClass: 'btn-light',   
+            locale: {
+                format: 'YYYY-MM-DD',
+                direction: 'rtl'
+            }
         });
 
         $("#btn-reset").click(function(){
