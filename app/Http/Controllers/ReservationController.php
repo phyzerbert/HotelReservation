@@ -223,7 +223,7 @@ class ReservationController extends Controller
 
     public function delete($id){
         $item = Reservation::find($id);
-        $item->companions->delete();
+        $item->companions()->delete();
         $item->delete();
         return back()->with("success", "Deleted Successfully");
     }
