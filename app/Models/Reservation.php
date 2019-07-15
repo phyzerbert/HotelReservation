@@ -34,4 +34,8 @@ class Reservation extends Model
     public function hotel(){
         return $this->belongsTo('App\Models\Hotel');
     }
+
+    public function notifications(){
+        return $this->hasMany('App\Models\Notification');
+    }
 }
